@@ -12,6 +12,7 @@ import static java.lang.Math.abs;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Encoder;
 
 public class Robot extends TimedRobot {
 
@@ -38,6 +39,10 @@ public class Robot extends TimedRobot {
   DigitalInput climbSwitch = new DigitalInput(0);
   DigitalInput elevSwitch = new DigitalInput(1);
 
+  Encoder encoder1 = new Encoder(3, 4);
+  Encoder encoder2 = new Encoder(5, 6);
+
+
   @Override
   public void robotInit() {
     CameraServer.getInstance().startAutomaticCapture();
@@ -55,7 +60,13 @@ public class Robot extends TimedRobot {
 
   @Override
   public void autonomousPeriodic() {
-    // System.out.println("Auto Periodic");
+    if (encoder1.getDistance() > 2 && encoder2.getDistance() > 2){
+      leftDriveMotors.set(1);
+      rightDriveMotors.set(1);
+    } else {
+      leftDriveMotors.set(0);
+      rightDriveMotors.set(0);
+    }
   }
 
   @Override
