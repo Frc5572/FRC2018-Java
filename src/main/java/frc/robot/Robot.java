@@ -39,13 +39,17 @@ public class Robot extends TimedRobot {
   DigitalInput climbSwitch = new DigitalInput(0);
   DigitalInput elevSwitch = new DigitalInput(1);
 
-  Encoder encoder1 = new Encoder(3, 4);
-  Encoder encoder2 = new Encoder(5, 6);
+  Encoder encoder1 = new Encoder(3, 4, true);
+  Encoder encoder2 = new Encoder(5, 6, false);
 
 
   @Override
   public void robotInit() {
     CameraServer.getInstance().startAutomaticCapture();
+    encoder1.setDistancePerPulse(1./256.);
+    encoder1.reset();
+    rightDriveMotors.setInverted(true);
+
   }
 
   @Override
@@ -55,12 +59,14 @@ public class Robot extends TimedRobot {
 
   @Override
   public void autonomousInit() {
-    // System.out.println("Auto Init");
+    encoder1.reset();
   }
 
   @Override
   public void autonomousPeriodic() {
-    if (encoder1.getDistance() > 2 && encoder2.getDistance() > 2){
+    System.out.println(encoder1.getDistance());
+    // System.out.println(encoder2.getDistance());
+    if (encoder1.getDistance() < 2){
       leftDriveMotors.set(1);
       rightDriveMotors.set(1);
     } else {
@@ -119,7 +125,7 @@ public class Robot extends TimedRobot {
     }
     // new controllers have axis = 3, old controllers = 5
     if (abs(driver.getRawAxis(3)) > .01){
-        rightDriveMotors.set(-driver.getRawAxis(3) / MotorSpeed);
+        rightDriveMotors.set(driver.getRawAxis(3) / MotorSpeed);
     } else {
         rightDriveMotors.set(0);
     }
