@@ -86,7 +86,7 @@ public class Robot extends TimedRobot {
     Take();
     Elevator();
     Climb();
-    System.out.println(climbSwitch.get());     
+    System.out.println(climbSwitch.get());
     System.out.println(elevSwitch.get());
   }
   /** This function is called once when the robot is disabled. */
@@ -117,7 +117,7 @@ public class Robot extends TimedRobot {
   and so on
   */
 
-  void Drive() {  
+  void Drive() {
     if (abs(driver.getRawAxis(1)) > .01){
         leftDriveMotors.set(driver.getRawAxis(1) / MotorSpeed);
     } else {
