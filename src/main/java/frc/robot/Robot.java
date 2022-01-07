@@ -12,6 +12,7 @@ import static java.lang.Math.abs;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Encoder;
 
 public class Robot extends TimedRobot {
 
@@ -38,9 +39,17 @@ public class Robot extends TimedRobot {
   DigitalInput climbSwitch = new DigitalInput(0);
   DigitalInput elevSwitch = new DigitalInput(1);
 
+  Encoder encoder1 = new Encoder(3, 4, true);
+  Encoder encoder2 = new Encoder(5, 6, false);
+
+
   @Override
   public void robotInit() {
     CameraServer.getInstance().startAutomaticCapture();
+    encoder1.setDistancePerPulse(1./256.);
+    encoder1.reset();
+    rightDriveMotors.setInverted(true);
+
   }
 
   @Override
@@ -50,12 +59,20 @@ public class Robot extends TimedRobot {
 
   @Override
   public void autonomousInit() {
-    // System.out.println("Auto Init");
+    encoder1.reset();
   }
 
   @Override
   public void autonomousPeriodic() {
-    // System.out.println("Auto Periodic");
+    System.out.println(encoder1.getDistance());
+    // System.out.println(encoder2.getDistance());
+    if (encoder1.getDistance() < 2){
+      leftDriveMotors.set(1);
+      rightDriveMotors.set(1);
+    } else {
+      leftDriveMotors.set(0);
+      rightDriveMotors.set(0);
+    }
   }
 
   @Override
@@ -69,7 +86,7 @@ public class Robot extends TimedRobot {
     Take();
     Elevator();
     Climb();
-    System.out.println(climbSwitch.get());     
+    System.out.println(climbSwitch.get());
     System.out.println(elevSwitch.get());
   }
   /** This function is called once when the robot is disabled. */
@@ -100,7 +117,7 @@ public class Robot extends TimedRobot {
   and so on
   */
 
-  void Drive() {  
+  void Drive() {
     if (abs(driver.getRawAxis(1)) > .01){
         leftDriveMotors.set(driver.getRawAxis(1) / MotorSpeed);
     } else {
@@ -108,7 +125,7 @@ public class Robot extends TimedRobot {
     }
     // new controllers have axis = 3, old controllers = 5
     if (abs(driver.getRawAxis(3)) > .01){
-        rightDriveMotors.set(-driver.getRawAxis(3) / MotorSpeed);
+        rightDriveMotors.set(driver.getRawAxis(3) / MotorSpeed);
     } else {
         rightDriveMotors.set(0);
     }
