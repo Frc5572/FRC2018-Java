@@ -7,10 +7,10 @@ package frc.robot;
 import edu.wpi.first.cameraserver.*;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import static java.lang.Math.abs;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 
@@ -22,17 +22,17 @@ public class Robot extends TimedRobot {
 
   VictorSP rDrive1 = new VictorSP(6);
   VictorSP rDrive2 = new VictorSP(7);
-  SpeedControllerGroup rightDriveMotors = new SpeedControllerGroup(rDrive1, rDrive2);
+  MotorControllerGroup rightDriveMotors = new MotorControllerGroup(rDrive1, rDrive2);
 
   VictorSP lDrive1 = new VictorSP(4);
   VictorSP lDrive2 = new VictorSP(5);
-  SpeedControllerGroup leftDriveMotors = new SpeedControllerGroup(lDrive1, lDrive2);
+  MotorControllerGroup leftDriveMotors = new MotorControllerGroup(lDrive1, lDrive2);
 
   VictorSP elevator = new VictorSP(3);
 
   VictorSP intake1 = new VictorSP(1);
   VictorSP intake2 = new VictorSP(2);
-  SpeedControllerGroup intakeMotors = new SpeedControllerGroup(intake1, intake2);
+  MotorControllerGroup intakeMotors = new MotorControllerGroup(intake1, intake2);
 
   VictorSP climb = new VictorSP(0);
 
@@ -45,7 +45,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void robotInit() {
-    CameraServer.getInstance().startAutomaticCapture();
+    CameraServer.startAutomaticCapture();
     encoder1.setDistancePerPulse(1./256.);
     encoder1.reset();
     rightDriveMotors.setInverted(true);
