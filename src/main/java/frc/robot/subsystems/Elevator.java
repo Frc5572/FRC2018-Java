@@ -12,6 +12,7 @@ public class Elevator extends SubsystemBase {
 
   public void elevatorUp() {
     elevator.set(-.5);
+    System.out.println("Up up up!");
   }
 
   public void elevatorInactive() {

@@ -19,8 +19,8 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void drive(double axis1, double axis2) {
-    leftMotors.set(axis1);
-    rightMotors.set(axis2);
+    leftMotors.set(axis2);
+    rightMotors.set(axis1);
   }
 }
 
