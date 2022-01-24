@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 /**
-* Elevator subsystem
+* Elevator subsystem.
 */
 
 public class Elevator extends SubsystemBase {

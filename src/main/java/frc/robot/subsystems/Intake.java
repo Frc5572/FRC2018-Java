@@ -1,16 +1,16 @@
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 /**
-* Intake subsystem
+* Intake subsystem.
 */
 
 public class Intake extends SubsystemBase {
   private final MotorControllerGroup intakeMotors = 
-    new MotorControllerGroup(new VictorSP(1), new VictorSP(2));
+      new MotorControllerGroup(new VictorSP(1), new VictorSP(2));
 
   public void intakeIn() {
     intakeMotors.set(1);

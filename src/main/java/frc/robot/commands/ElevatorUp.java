@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Elevator;
 
 /**
-* Elevator up
+* Elevator up.
 */
 
 public class ElevatorUp extends CommandBase {

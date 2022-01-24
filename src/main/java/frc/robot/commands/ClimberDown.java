@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Climber;
 
 /**
-* Climber down
+* Climber down.
 */
 
 public class ClimberDown extends CommandBase {

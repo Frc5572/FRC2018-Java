@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Drivetrain;
 
 /**
-* Drive
+* Drive.
 */
 
 public class Drive extends CommandBase {
@@ -21,10 +21,10 @@ public class Drive extends CommandBase {
 
   @Override
   public void execute() {
-    double lAxis = -driver.getRawAxis(XboxController.Axis.kLeftY.value);
-    double rAxis = -driver.getRawAxis(XboxController.Axis.kRightY.value);
-    lAxis = (Math.abs(lAxis) < .01) ? 0 : lAxis;
-    rAxis = (Math.abs(rAxis) < .01) ? 0 : rAxis;
-    this.drive.drive(lAxis, rAxis);
+    double laxis = -driver.getRawAxis(XboxController.Axis.kLeftY.value);
+    double raxis = -driver.getRawAxis(XboxController.Axis.kRightY.value);
+    laxis = (Math.abs(laxis) < .01) ? 0 : laxis;
+    raxis = (Math.abs(raxis) < .01) ? 0 : raxis;
+    this.drive.drive(laxis, raxis);
   }
 }

@@ -31,11 +31,11 @@ public class RobotContainer {
   private final POVButton climberUp = new POVButton(driver, 0);
   private final POVButton climberDown = new POVButton(driver, 180);
   private final JoystickButton intakeIn =  
-    new JoystickButton(operator, XboxController.Button.kX.value);
+      new JoystickButton(operator, XboxController.Button.kX.value);
   private final JoystickButton intakeOut = 
-    new JoystickButton(operator, XboxController.Button.kY.value);
+      new JoystickButton(operator, XboxController.Button.kY.value);
   private final JoystickButton elevatorUp = 
-    new JoystickButton(operator, XboxController.Button.kB.value);
+      new JoystickButton(operator, XboxController.Button.kB.value);
 
   public RobotContainer() {
     tankDrive.setDefaultCommand(new Drive(tankDrive, driver));
