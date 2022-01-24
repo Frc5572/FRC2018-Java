@@ -8,7 +8,7 @@ import edu.wpi.first.cameraserver.*;
 import edu.wpi.first.wpilibj.TimedRobot;
 
 public class Robot extends TimedRobot {
-    private RobotContainer robotContainer;
+  private RobotContainer robotContainer;
 
   @Override
   public void robotInit() {

@@ -4,20 +4,20 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Climber;
 
 public class ClimberUp extends CommandBase {
-    private Climber climber;
+  private Climber climber;
 
-    public ClimberUp(Climber climber) {
-        this.climber = climber;
-        addRequirements(climber);
-    }
+  public ClimberUp(Climber climber) {
+    this.climber = climber;
+    addRequirements(climber);
+  }
 
-    @Override
-    public void execute() {
-        this.climber.climberUp();
-    }
+  @Override
+  public void execute() {
+    this.climber.climberUp();
+  }
 
-    @Override
-    public void end(boolean interrupt) {
-        this.climber.climberInactive();
-    }
+  @Override
+  public void end(boolean interrupt) {
+    this.climber.climberInactive();
+  }
 }
