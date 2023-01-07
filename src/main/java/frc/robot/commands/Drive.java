@@ -6,29 +6,29 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Drivetrain;
 
 /**
-* Drive.
-*/
+ * Drive.
+ */
 
 public class Drive extends CommandBase {
-  private Joystick driver;
-  private Drivetrain drive;
+    private Joystick driver;
+    private Drivetrain drive;
 
-  /**
-  * Drive again.
-  */
+    /**
+     * Drive again.
+     */
 
-  public Drive(Drivetrain drive, Joystick controller) {
-    this.driver = controller;
-    this.drive = drive;
-    addRequirements(drive);
-  }
+    public Drive(Drivetrain drive, Joystick controller) {
+        this.driver = controller;
+        this.drive = drive;
+        addRequirements(drive);
+    }
 
-  @Override
-  public void execute() {
-    double laxis = -driver.getRawAxis(XboxController.Axis.kLeftY.value);
-    double raxis = -driver.getRawAxis(XboxController.Axis.kRightY.value);
-    laxis = (Math.abs(laxis) < .01) ? 0 : laxis;
-    raxis = (Math.abs(raxis) < .01) ? 0 : raxis;
-    this.drive.drive(laxis, raxis);
-  }
+    @Override
+    public void execute() {
+        double laxis = -driver.getRawAxis(XboxController.Axis.kLeftY.value);
+        double raxis = -driver.getRawAxis(XboxController.Axis.kRightY.value);
+        laxis = (Math.abs(laxis) < .01) ? 0 : laxis;
+        raxis = (Math.abs(raxis) < .01) ? 0 : raxis;
+        this.drive.drive(laxis, raxis);
+    }
 }
