@@ -9,8 +9,6 @@ public interface DrivetrainIO {
         public double drivePositionRad = 0.0;
         public double driveVelocityRadPerSec = 0.0;
         public double driveAppliedVolts = 0.0;
-        public double[] driveCurrentAmps = new double[] {};
-        public double[] driveTempCelcius = new double[] {};
 
     }
 
@@ -20,10 +18,5 @@ public interface DrivetrainIO {
     /** Run the motor at the specified voltage. */
     public default void setDriveVoltage(double volts) {}
 
-    /** Enable or disable brake mode on the drive motor. */
-    public default void setDriveBrakeMode(boolean enable) {}
-
-    /** Enable or disable brake mode on the turn motor. */
-    public default void setTurnBrakeMode(boolean enable) {}
 
 }

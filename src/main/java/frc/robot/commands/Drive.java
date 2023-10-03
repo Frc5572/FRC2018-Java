@@ -27,8 +27,7 @@ public class Drive extends CommandBase {
     public void execute() {
         double laxis = -driver.getRawAxis(XboxController.Axis.kLeftY.value);
         double raxis = -driver.getRawAxis(XboxController.Axis.kRightY.value);
-        laxis = (Math.abs(laxis) < .01) ? 0 : laxis;
         raxis = (Math.abs(raxis) < .01) ? 0 : raxis;
-        this.drive.drive(laxis, raxis);
+        this.drive.setMotor(laxis, raxis);
     }
 }

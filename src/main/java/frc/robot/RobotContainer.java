@@ -12,8 +12,8 @@ import frc.robot.commands.IntakeIn;
 import frc.robot.commands.IntakeOut;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Elevator;
-import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.drive.Drivetrain;
+import frc.robot.subsystems.intake.Intake;
 
 /**
  * Robot Container file.
@@ -42,10 +42,10 @@ public class RobotContainer {
     }
 
     private void configureButtonBindings() {
-        climberUp.whenHeld(new ClimberUp(climb));
-        climberDown.whenHeld(new ClimberDown(climb));
-        intakeIn.whenHeld(new IntakeIn(intake));
-        intakeOut.whenHeld(new IntakeOut(intake));
-        elevatorUp.whenHeld(new ElevatorUp(elevator));
+        climberUp.whileTrue(new ClimberUp(climb));
+        climberDown.whileTrue(new ClimberDown(climb));
+        intakeIn.whileTrue(new IntakeIn(intake));
+        intakeOut.whileTrue(new IntakeOut(intake));
+        elevatorUp.whileTrue(new ElevatorUp(elevator));
     }
 }
