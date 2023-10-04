@@ -116,4 +116,15 @@ tasks.withType(JavaCompile) {
     if (System.getenv("GITHUB_ACTOR") != null && !System.getenv("GITHUB_ACTOR").equals("")) {
         options.compilerArgs << "-Xplugin:rchk"
         outputs.upToDateWhen { false } // Force recompile, even if source file hasn't changed
-}}
+    }
+}
+
+javadoc {
+    configure(options) {
+        options.addBooleanOption("-allow-script-in-comments",true)
+        options.addStringOption("link", "https://first.wpi.edu/wpilib/allwpilib/docs/release/java")
+        options.header = "<script type=\"text/javascript\" async" +
+            "  src=\"https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML\">" +
+            "</script>"
+    }
+}
