@@ -1,4 +1,4 @@
-package java.org.frc5572.robotools;
+package org.frc5572.robotools;
 
 import org.frc5572.robotools.checks.Check;
 import org.frc5572.robotools.checks.IOCheck;
