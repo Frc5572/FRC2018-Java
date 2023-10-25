@@ -26,8 +26,8 @@ public class Drivetrain extends SubsystemBase {
      *
      * @param power power of motors from -1 to 1
      */
-    public void setMotor(double lpower, double rpower) {
-        io.setDriveVoltage(lpower, rpower);
+    public void setMotor(double power) {
+        io.setDriveVoltage(power);
     }
 }
 

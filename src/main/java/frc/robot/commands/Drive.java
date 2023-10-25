@@ -28,6 +28,6 @@ public class Drive extends CommandBase {
         double laxis = -driver.getRawAxis(XboxController.Axis.kLeftY.value);
         double raxis = -driver.getRawAxis(XboxController.Axis.kRightY.value);
         raxis = (Math.abs(raxis) < .01) ? 0 : raxis;
-        this.drive.setMotor(laxis, raxis);
+        this.drive.setMotor(laxis);
     }
 }
