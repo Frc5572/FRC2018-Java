@@ -3,6 +3,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.intake.Intake;
 
+
 /**
  * Intake in.
  */
@@ -12,16 +13,17 @@ public class IntakeIn extends CommandBase {
 
     public IntakeIn(Intake subsystem) {
         this.intake = subsystem;
+
         addRequirements(intake);
     }
 
     @Override
     public void execute() {
-        intake.intakeIn();
+        intake.setMotorVoltage(1);
     }
 
     @Override
     public void end(boolean interrupt) {
-        intake.intakeInactive();
+        intake.setMotorVoltage(0);
     }
 }
