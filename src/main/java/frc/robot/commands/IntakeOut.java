@@ -17,7 +17,7 @@ public class IntakeOut extends CommandBase {
 
     @Override
     public void execute() {
-        intake.setMotorVoltage(-1);;
+        intake.setMotorVoltage(-1);
     }
 
     @Override
