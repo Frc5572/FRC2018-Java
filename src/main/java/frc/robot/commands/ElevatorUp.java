@@ -17,11 +17,11 @@ public class ElevatorUp extends CommandBase {
 
     @Override
     public void execute() {
-        this.elevator.elevatorUp();
+        this.elevator.setMotor(-.5);
     }
 
     @Override
     public void end(boolean interrupt) {
-        this.elevator.elevatorInactive();
+        this.elevator.setMotor(0);
     }
 }
