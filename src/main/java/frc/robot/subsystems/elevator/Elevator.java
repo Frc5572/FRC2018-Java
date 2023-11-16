@@ -31,7 +31,7 @@ public class Elevator extends SubsystemBase {
      * @param power power of motors from -1 to 1
      */
     public void setMotor(double power) {
-        Logger.getInstance().recordOutput("Drivetrain/voltage", power * 0.8);
-        io.setMotorVoltage(power * 0.8);
+        Logger.getInstance().recordOutput("Elevator/voltage", power);
+        io.setMotorVoltage(power);
     }
 }

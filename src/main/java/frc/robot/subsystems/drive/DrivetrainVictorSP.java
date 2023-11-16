@@ -16,9 +16,9 @@ public class DrivetrainVictorSP implements DrivetrainIO {
 
 
 
-  public void setDriveVoltage(double volts) {
-    leftMotors.set(volts);
-    rightMotors.set(volts);
+  public void setDriveVoltage(double lvolts, double rvolts) {
+    leftMotors.set(lvolts);
+    rightMotors.set(rvolts);
   }
 
 

@@ -2,6 +2,7 @@ package frc.robot.subsystems.climber;
 
 import org.littletonrobotics.junction.Logger;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
 /**
  * Climber subsystem.
  */
@@ -30,7 +31,7 @@ public class Climber extends SubsystemBase {
      * @param power power of motors from -1 to 1
      */
     public void setMotor(double power) {
-        Logger.getInstance().recordOutput("climber/voltage", power * 0.8);
-        io.setMotorVoltage(power * 0.8);
+        Logger.getInstance().recordOutput("Climber/voltage", power);
+        io.setMotorVoltage(power);
     }
 }

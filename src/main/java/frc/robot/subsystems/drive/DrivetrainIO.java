@@ -16,7 +16,7 @@ public interface DrivetrainIO {
     public default void updateInputs(DrivetrainIOInputs inputs) {}
 
     /** Run the motor at the specified voltage. */
-    public default void setDriveVoltage(double volts) {}
+    public default void setDriveVoltage(double lvolts, double rvolts) {}
 
 
 }

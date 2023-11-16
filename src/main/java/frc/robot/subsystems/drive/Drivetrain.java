@@ -30,9 +30,9 @@ public class Drivetrain extends SubsystemBase {
      *
      * @param power power of motors from -1 to 1
      */
-    public void setMotor(double power) {
-        Logger.getInstance().recordOutput("Drivetrain/voltage", power * 0.8);
-        io.setDriveVoltage(power * 0.8);
+    public void setMotor(double lpower, double rpower) {
+        Logger.getInstance().recordOutput("Drivetrain/voltage", (lpower + rpower));
+        io.setDriveVoltage(lpower, rpower);
     }
 }
 
