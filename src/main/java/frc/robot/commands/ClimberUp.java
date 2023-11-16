@@ -17,11 +17,11 @@ public class ClimberUp extends CommandBase {
 
     @Override
     public void execute() {
-        this.climber.climberUp();
+        this.climber.setMotor(1);
     }
 
     @Override
     public void end(boolean interrupt) {
-        this.climber.climberInactive();
+        this.climber.setMotor(0);
     }
 }
