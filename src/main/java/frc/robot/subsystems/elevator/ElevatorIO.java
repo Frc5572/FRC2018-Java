@@ -3,9 +3,12 @@ package frc.robot.subsystems.elevator;
 import org.littletonrobotics.junction.AutoLog;
 
 public interface ElevatorIO {
+    /**
+     * ElevatorIO
+     */
     @AutoLog
     public static class ElevatorIOInputs {
-        public double intakeVelocityRotPerSecond;
+        public double elevatorVelocityRotPerSecond;
     }
 
     public default void setMotorVoltage(double voltage) {

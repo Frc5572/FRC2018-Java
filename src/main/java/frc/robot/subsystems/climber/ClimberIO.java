@@ -3,6 +3,9 @@ package frc.robot.subsystems.climber;
 import org.littletonrobotics.junction.AutoLog;
 
 public interface ClimberIO {
+    /**
+     * ClimberIO
+     */
     @AutoLog
     public static class ClimberIOInputs {
         public double climberVelocityRotPerSecond;
