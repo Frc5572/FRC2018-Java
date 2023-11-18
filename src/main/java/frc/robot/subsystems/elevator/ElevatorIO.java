@@ -8,7 +8,6 @@ public interface ElevatorIO {
      */
     @AutoLog
     public static class ElevatorIOInputs {
-        public double elevatorVelocityRotPerSecond;
     }
 
     public default void setMotorVoltage(double voltage) {
@@ -19,12 +18,7 @@ public interface ElevatorIO {
 
     }
 
-    public default void getVoltage() {}
 
     /** Updates the set of loggable inputs. */
     public default void updateInputs(ElevatorIOInputs inputs) {}
-
-    public default double getOutputCurrentAmps() {
-        return 0.0;
-    }
 }

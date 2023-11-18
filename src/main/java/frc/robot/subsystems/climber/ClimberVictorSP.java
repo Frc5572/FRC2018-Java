@@ -12,8 +12,6 @@ public class ClimberVictorSP implements ClimberIO {
         climb.set(power);
     }
 
-    public void climbInactive() {
-        climb.set(0);
-    }
+
 }
 

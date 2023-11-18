@@ -26,13 +26,11 @@ public class Robot extends LoggedRobot {
             logger.addDataReceiver(new WPILOGWriter("/media/sda1"));
             logger.addDataReceiver(new NT4Publisher());
             setUseTiming(true);
-            System.out.println("real");
         } else {
             String path = LogFileUtil.findReplayLog();
             logger.setReplaySource(new WPILOGReader(path));
             logger.addDataReceiver(new WPILOGWriter(LogFileUtil.addPathSuffix(path, "_sim")));
             setUseTiming(false);
-            System.out.println("real");
         }
         logger.start();
         robotContainer = new RobotContainer(isReal());

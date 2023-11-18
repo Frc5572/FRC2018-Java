@@ -1,6 +1,6 @@
 package frc.robot.subsystems.elevator;
 
-import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
+import edu.wpi.first.wpilibj.motorcontrol.VictorSP;;
 
 /**
  * Elevator VictorSP
@@ -11,5 +11,6 @@ public class ElevatorVictorSP implements ElevatorIO {
     public void setMotorVoltage() {
         elevator.set(-.5);
     }
+
 
 }

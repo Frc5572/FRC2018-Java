@@ -32,7 +32,9 @@ public class Drivetrain extends SubsystemBase {
      * @param rpower power of right motor from -1 to 1
      */
     public void setMotor(double lpower, double rpower) {
-        Logger.getInstance().recordOutput("Drivetrain/voltage", (lpower + rpower));
+        Logger.getInstance().recordOutput("Drivetrain/left voltage", lpower);
+        Logger.getInstance().recordOutput("Drivetrain/right voltage", rpower);
+
         io.setDriveVoltage(lpower, rpower);
     }
 }

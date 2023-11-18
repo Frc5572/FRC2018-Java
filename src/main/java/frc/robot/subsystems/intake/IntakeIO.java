@@ -22,12 +22,8 @@ public interface IntakeIO {
 
     }
 
-    public default void getVoltage() {}
 
     /** Updates the set of loggable inputs. */
     public default void updateInputs(IntakeInputs inputs) {}
 
-    public default double getOutputCurrentAmps() {
-        return 0.0;
-    }
 }
