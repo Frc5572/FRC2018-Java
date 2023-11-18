@@ -3,7 +3,9 @@ package frc.robot.subsystems.drive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 
-
+/**
+ * Drivetrain VictorSP
+ */
 public class DrivetrainVictorSP implements DrivetrainIO {
 	private final MotorControllerGroup leftMotors =
 		new MotorControllerGroup(new VictorSP(4), new VictorSP(5));

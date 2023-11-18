@@ -2,6 +2,9 @@ package frc.robot.subsystems.climber;
 
 import org.littletonrobotics.junction.AutoLog;
 
+/**
+ * ClimberIO interface
+ */
 public interface ClimberIO {
     /**
      * ClimberIO
@@ -23,5 +26,5 @@ public interface ClimberIO {
     /** Updates the set of loggable inputs. */
     public default void updateInputs(ClimberIOInputs inputs) {}
 
-   
+
 }
