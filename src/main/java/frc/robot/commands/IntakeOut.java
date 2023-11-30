@@ -1,7 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.intake.Intake;
 
 /**
  * Intake out.
@@ -17,11 +17,11 @@ public class IntakeOut extends CommandBase {
 
     @Override
     public void execute() {
-        intake.intakeOut();
+        intake.setMotorVoltage(-1);
     }
 
     @Override
     public void end(boolean interruptible) {
-        intake.intakeInactive();
+        intake.setMotorVoltage(0);
     }
 }

@@ -4,19 +4,36 @@
 
 package frc.robot;
 
+import org.littletonrobotics.junction.LogFileUtil;
+import org.littletonrobotics.junction.LoggedRobot;
+import org.littletonrobotics.junction.Logger;
+import org.littletonrobotics.junction.networktables.NT4Publisher;
+import org.littletonrobotics.junction.wpilog.WPILOGReader;
+import org.littletonrobotics.junction.wpilog.WPILOGWriter;
 import edu.wpi.first.cameraserver.CameraServer;
-import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 /**
  * Robot file.
  */
-public class Robot extends TimedRobot {
+public class Robot extends LoggedRobot {
     private RobotContainer robotContainer;
 
     @Override
     public void robotInit() {
-        robotContainer = new RobotContainer();
+        Logger logger = Logger.getInstance();
+        if (isReal()) {
+            logger.addDataReceiver(new WPILOGWriter("/media/sda1"));
+            logger.addDataReceiver(new NT4Publisher());
+            setUseTiming(true);
+        } else {
+            String path = LogFileUtil.findReplayLog();
+            logger.setReplaySource(new WPILOGReader(path));
+            logger.addDataReceiver(new WPILOGWriter(LogFileUtil.addPathSuffix(path, "_sim")));
+            setUseTiming(false);
+        }
+        logger.start();
+        robotContainer = new RobotContainer(isReal());
         CameraServer.startAutomaticCapture();
     }
 

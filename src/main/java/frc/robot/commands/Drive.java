@@ -3,7 +3,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.drive.Drivetrain;
 
 /**
  * Drive.
@@ -29,6 +29,7 @@ public class Drive extends CommandBase {
         double raxis = -driver.getRawAxis(XboxController.Axis.kRightY.value);
         laxis = (Math.abs(laxis) < .01) ? 0 : laxis;
         raxis = (Math.abs(raxis) < .01) ? 0 : raxis;
-        this.drive.drive(laxis, raxis);
+
+        this.drive.setMotor(laxis, raxis);
     }
 }
