@@ -21,7 +21,7 @@ public class Intake extends SubsystemBase {
     @Override
     public void periodic() {
         io.updateInputs(inputs);
-        Logger.getInstance().processInputs("Intake", inputs);
+        Logger.processInputs("Intake", inputs);
     }
 
     /**
@@ -30,7 +30,7 @@ public class Intake extends SubsystemBase {
      * @param power power of motors from -1 to 1
      */
     public void setMotorVoltage(double power) {
-        Logger.getInstance().recordOutput("Intake/voltage", power);
+        Logger.recordOutput("Intake/voltage", power);
         io.setMotorVoltage(power);
     }
 }

@@ -21,18 +21,17 @@ public class Robot extends LoggedRobot {
 
     @Override
     public void robotInit() {
-        Logger logger = Logger.getInstance();
         if (isReal()) {
-            logger.addDataReceiver(new WPILOGWriter("/media/sda1"));
-            logger.addDataReceiver(new NT4Publisher());
+            Logger.addDataReceiver(new WPILOGWriter("/media/sda1"));
+            Logger.addDataReceiver(new NT4Publisher());
             setUseTiming(true);
         } else {
             String path = LogFileUtil.findReplayLog();
-            logger.setReplaySource(new WPILOGReader(path));
-            logger.addDataReceiver(new WPILOGWriter(LogFileUtil.addPathSuffix(path, "_sim")));
+            Logger.setReplaySource(new WPILOGReader(path));
+            Logger.addDataReceiver(new WPILOGWriter(LogFileUtil.addPathSuffix(path, "_sim")));
             setUseTiming(false);
         }
-        logger.start();
+        Logger.start();
         robotContainer = new RobotContainer(isReal());
         CameraServer.startAutomaticCapture();
     }

@@ -1,13 +1,13 @@
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.elevator.Elevator;
 
 /**
  * Elevator up.
  */
 
-public class ElevatorUp extends CommandBase {
+public class ElevatorUp extends Command {
     private Elevator elevator;
 
     public ElevatorUp(Elevator elevator) {

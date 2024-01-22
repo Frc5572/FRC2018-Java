@@ -22,7 +22,7 @@ public class Climber extends SubsystemBase {
     @Override
     public void periodic() {
         io.updateInputs(inputs);
-        Logger.getInstance().processInputs("Climber", inputs);
+        Logger.processInputs("Climber", inputs);
     }
 
     /**
@@ -31,7 +31,7 @@ public class Climber extends SubsystemBase {
      * @param power power of motors from -1 to 1
      */
     public void setMotor(double power) {
-        Logger.getInstance().recordOutput("Climber/voltage", power);
+        Logger.recordOutput("Climber/voltage", power);
         io.setMotorVoltage(power);
     }
 }
