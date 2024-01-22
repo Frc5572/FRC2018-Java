@@ -16,6 +16,8 @@ public class DrivetrainVictorSP implements DrivetrainIO {
      * Drivetrain VictorSP
      */
     public DrivetrainVictorSP() {
+        left1.addFollower(left2);
+        right1.addFollower(right2);
         right1.setInverted(true);
         right2.setInverted(true);
     }
@@ -24,9 +26,7 @@ public class DrivetrainVictorSP implements DrivetrainIO {
      * Drive Voltage
      */
     public void setDriveVoltage(double lvolts, double rvolts) {
-        left1.addFollower(left2);
         left1.set(lvolts);
-        right1.addFollower(right2);
         right1.set(rvolts);
     }
 
