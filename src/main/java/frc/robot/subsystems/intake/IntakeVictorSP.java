@@ -1,6 +1,5 @@
 package frc.robot.subsystems.intake;
 
-import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 
 /**
@@ -8,14 +7,15 @@ import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
  */
 
 public class IntakeVictorSP implements IntakeIO {
-    private final MotorControllerGroup intakeMotors =
-        new MotorControllerGroup(new VictorSP(1), new VictorSP(2));
+    private final VictorSP leftIntake = new VictorSP(1);
+    private final VictorSP rightIntake = new VictorSP(2);
 
     public void setMotorVoltage(double power) {
-        intakeMotors.set(power);
+        leftIntake.addFollower(rightIntake);
+        leftIntake.set(power);
     }
 
     public void intakeInactive() {
-        intakeMotors.set(0);
+        leftIntake.set(0);
     }
 }

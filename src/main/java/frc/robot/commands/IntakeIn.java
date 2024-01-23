@@ -1,6 +1,6 @@
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.intake.Intake;
 
 
@@ -8,7 +8,7 @@ import frc.robot.subsystems.intake.Intake;
  * Intake in.
  */
 
-public class IntakeIn extends CommandBase {
+public class IntakeIn extends Command {
     private final Intake intake;
 
     /**

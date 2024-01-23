@@ -1,30 +1,33 @@
 package frc.robot.subsystems.drive;
 
-import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 
 /**
  * Drivetrain VictorSP
  */
 public class DrivetrainVictorSP implements DrivetrainIO {
-    private final MotorControllerGroup leftMotors =
-        new MotorControllerGroup(new VictorSP(4), new VictorSP(5));
-    private final MotorControllerGroup rightMotors =
-        new MotorControllerGroup(new VictorSP(6), new VictorSP(7));
+    private final VictorSP left1 = new VictorSP(4);
+    private final VictorSP left2 = new VictorSP(5);
+
+    private final VictorSP right1 = new VictorSP(6);
+    private final VictorSP right2 = new VictorSP(7);
 
     /**
      * Drivetrain VictorSP
      */
     public DrivetrainVictorSP() {
-        rightMotors.setInverted(true);
+        left1.addFollower(left2);
+        right1.addFollower(right2);
+        right1.setInverted(true);
+        right2.setInverted(true);
     }
 
     /**
      * Drive Voltage
      */
     public void setDriveVoltage(double lvolts, double rvolts) {
-        leftMotors.set(lvolts);
-        rightMotors.set(rvolts);
+        left1.set(lvolts);
+        right1.set(rvolts);
     }
 
 }

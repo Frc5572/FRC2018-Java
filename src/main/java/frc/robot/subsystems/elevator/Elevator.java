@@ -22,7 +22,7 @@ public class Elevator extends SubsystemBase {
     @Override
     public void periodic() {
         io.updateInputs(inputs);
-        Logger.getInstance().processInputs("Drivetrain", inputs);
+        Logger.processInputs("Drivetrain", inputs);
     }
 
     /**
@@ -31,7 +31,7 @@ public class Elevator extends SubsystemBase {
      * @param power power of motors from -1 to 1
      */
     public void setMotor(double power) {
-        Logger.getInstance().recordOutput("Elevator/voltage", power);
+        Logger.recordOutput("Elevator/voltage", power);
         io.setMotorVoltage(power);
     }
 }

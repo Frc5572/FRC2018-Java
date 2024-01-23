@@ -22,7 +22,7 @@ public class Drivetrain extends SubsystemBase {
     @Override
     public void periodic() {
         io.updateInputs(inputs);
-        Logger.getInstance().processInputs("Drivetrain", inputs);
+        Logger.processInputs("Drivetrain", inputs);
     }
 
     /**
@@ -32,8 +32,8 @@ public class Drivetrain extends SubsystemBase {
      * @param rpower power of right motor from -1 to 1
      */
     public void setMotor(double lpower, double rpower) {
-        Logger.getInstance().recordOutput("Drivetrain/left voltage", lpower);
-        Logger.getInstance().recordOutput("Drivetrain/right voltage", rpower);
+        Logger.recordOutput("Drivetrain/left voltage", lpower);
+        Logger.recordOutput("Drivetrain/right voltage", rpower);
 
         io.setDriveVoltage(lpower, rpower);
     }
