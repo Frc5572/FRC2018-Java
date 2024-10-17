@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 /**
  * Drivetrain VictorSP
  */
-public class DrivetrainVictorSP implements DrivetrainIO {
+public class DrivetrainReal implements DrivetrainIO {
     private final VictorSP left1 = new VictorSP(4);
     private final VictorSP left2 = new VictorSP(5);
 
@@ -15,7 +15,7 @@ public class DrivetrainVictorSP implements DrivetrainIO {
     /**
      * Drivetrain VictorSP
      */
-    public DrivetrainVictorSP() {
+    public DrivetrainReal() {
         left1.addFollower(left2);
         right1.addFollower(right2);
         right1.setInverted(true);

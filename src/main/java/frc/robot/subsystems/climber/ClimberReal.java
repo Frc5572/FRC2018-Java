@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 /**
  * CLimber VictorSP
  */
-public class ClimberVictorSP implements ClimberIO {
+public class ClimberReal implements ClimberIO {
     private final VictorSP climb = new VictorSP(0);
 
     public void setMotorVoltage(double power) {

@@ -12,16 +12,16 @@ import frc.robot.commands.IntakeIn;
 import frc.robot.commands.IntakeOut;
 import frc.robot.subsystems.climber.Climber;
 import frc.robot.subsystems.climber.ClimberIO;
-import frc.robot.subsystems.climber.ClimberVictorSP;
+import frc.robot.subsystems.climber.ClimberReal;
 import frc.robot.subsystems.drive.Drivetrain;
 import frc.robot.subsystems.drive.DrivetrainIO;
-import frc.robot.subsystems.drive.DrivetrainVictorSP;
+import frc.robot.subsystems.drive.DrivetrainReal;
 import frc.robot.subsystems.elevator.Elevator;
 import frc.robot.subsystems.elevator.ElevatorIO;
-import frc.robot.subsystems.elevator.ElevatorVictorSP;
+import frc.robot.subsystems.elevator.ElevatorReal;
 import frc.robot.subsystems.intake.Intake;
 import frc.robot.subsystems.intake.IntakeIO;
-import frc.robot.subsystems.intake.IntakeVictorSP;
+import frc.robot.subsystems.intake.IntakeReal;
 
 /**
  * Robot Container file.
@@ -52,10 +52,10 @@ public class RobotContainer {
      */
     public RobotContainer(boolean isReal) {
         if (isReal) {
-            tankDrive = new Drivetrain(new DrivetrainVictorSP());
-            intake = new Intake(new IntakeVictorSP());
-            elevator = new Elevator(new ElevatorVictorSP());
-            climber = new Climber(new ClimberVictorSP());
+            tankDrive = new Drivetrain(new DrivetrainReal());
+            intake = new Intake(new IntakeReal());
+            elevator = new Elevator(new ElevatorReal());
+            climber = new Climber(new ClimberReal());
         } else {
             tankDrive = new Drivetrain(new DrivetrainIO() {});
             intake = new Intake(new IntakeIO() {});
