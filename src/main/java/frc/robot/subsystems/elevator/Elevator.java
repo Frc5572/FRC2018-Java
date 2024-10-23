@@ -1,6 +1,8 @@
 package frc.robot.subsystems.elevator;
 
 import org.littletonrobotics.junction.Logger;
+import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 /**
@@ -33,5 +35,9 @@ public class Elevator extends SubsystemBase {
     public void setMotor(double power) {
         Logger.recordOutput("Elevator/voltage", power);
         io.setMotorVoltage(power);
+    }
+
+    public Command elevatorUp() {
+        return Commands.runEnd(() -> setMotor(-0.5), () -> setMotor(0), this);
     }
 }
