@@ -37,6 +37,11 @@ public class Elevator extends SubsystemBase {
         io.setMotorVoltage(power);
     }
 
+    /**
+     * Elevator Up Command
+     * 
+     * @return Command
+     */
     public Command elevatorUp() {
         return Commands.runEnd(() -> setMotor(-0.5), () -> setMotor(0), this);
     }

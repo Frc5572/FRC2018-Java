@@ -37,10 +37,20 @@ public class Climber extends SubsystemBase {
         io.setMotorVoltage(power);
     }
 
+    /**
+     * Climber up command
+     *
+     * @return Command
+     */
     public Command climberUp() {
         return Commands.runEnd(() -> setMotor(1), () -> setMotor(0), this);
     }
 
+    /**
+     * Climber down command
+     *
+     * @return Command
+     */
     public Command climberDown() {
         return Commands.runEnd(() -> setMotor(-1), () -> setMotor(0), this);
     }

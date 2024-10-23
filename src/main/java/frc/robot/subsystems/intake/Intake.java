@@ -36,10 +36,20 @@ public class Intake extends SubsystemBase {
         io.setMotorVoltage(power);
     }
 
+    /**
+     * Intake in command
+     * 
+     * @return Command
+     */
     public Command intakeIn() {
         return Commands.runEnd(() -> setMotorVoltage(1), () -> setMotorVoltage(0), this);
     }
 
+    /**
+     * Intake Out command
+     * 
+     * @return Command
+     */
     public Command intakeOut() {
         return Commands.runEnd(() -> setMotorVoltage(-1), () -> setMotorVoltage(0), this);
     }

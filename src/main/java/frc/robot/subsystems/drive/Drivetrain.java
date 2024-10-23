@@ -42,6 +42,13 @@ public class Drivetrain extends SubsystemBase {
         io.setDriveVoltage(lpower, rpower);
     }
 
+    /**
+     * Drive command
+     * 
+     * @param left Left Power
+     * @param right Right power
+     * @return Command
+     */
     public Command drive(DoubleSupplier left, DoubleSupplier right) {
         double laxis = MathUtil.applyDeadband(-left.getAsDouble(), .01);
         double raxis = MathUtil.applyDeadband(-right.getAsDouble(), .01);
