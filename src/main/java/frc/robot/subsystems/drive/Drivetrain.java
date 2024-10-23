@@ -1,6 +1,10 @@
 package frc.robot.subsystems.drive;
 
+import java.util.function.DoubleSupplier;
 import org.littletonrobotics.junction.Logger;
+import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 /**
@@ -36,6 +40,20 @@ public class Drivetrain extends SubsystemBase {
         Logger.recordOutput("Drivetrain/right voltage", rpower);
 
         io.setDriveVoltage(lpower, rpower);
+    }
+
+    /**
+     * Drive command
+     *
+     * @param left Left Power
+     * @param right Right power
+     * @return Command
+     */
+    public Command drive(DoubleSupplier left, DoubleSupplier right) {
+        double laxis = MathUtil.applyDeadband(-left.getAsDouble(), .01);
+        double raxis = MathUtil.applyDeadband(-right.getAsDouble(), .01);
+
+        return Commands.run(() -> this.setMotor(laxis, raxis), this);
     }
 }
 
