@@ -44,7 +44,7 @@ public class Drivetrain extends SubsystemBase {
 
     /**
      * Drive command
-     * 
+     *
      * @param left Left Power
      * @param right Right power
      * @return Command

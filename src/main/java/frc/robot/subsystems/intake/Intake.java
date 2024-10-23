@@ -38,7 +38,7 @@ public class Intake extends SubsystemBase {
 
     /**
      * Intake in command
-     * 
+     *
      * @return Command
      */
     public Command intakeIn() {
@@ -47,7 +47,7 @@ public class Intake extends SubsystemBase {
 
     /**
      * Intake Out command
-     * 
+     *
      * @return Command
      */
     public Command intakeOut() {

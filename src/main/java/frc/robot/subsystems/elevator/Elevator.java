@@ -39,7 +39,7 @@ public class Elevator extends SubsystemBase {
 
     /**
      * Elevator Up Command
-     * 
+     *
      * @return Command
      */
     public Command elevatorUp() {
