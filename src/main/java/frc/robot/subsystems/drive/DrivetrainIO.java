@@ -1,6 +1,7 @@
 package frc.robot.subsystems.drive;
 
 import org.littletonrobotics.junction.AutoLog;
+import edu.wpi.first.math.geometry.Pose2d;
 
 /**
  * DrivetrainIO interface
@@ -22,6 +23,8 @@ public interface DrivetrainIO {
 
     /** Run the motor at the specified voltage. */
     public default void setDriveVoltage(double lvolts, double rvolts) {}
+
+    public default void setPose(Pose2d pose) {}
 
 
 }
