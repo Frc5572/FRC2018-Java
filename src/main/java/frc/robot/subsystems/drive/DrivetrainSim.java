@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.simulation.FlywheelSim;
 import frc.lib.sim.SimulatedBlinky;
 
 public class DrivetrainSim implements DrivetrainIO {
-    private FlywheelSim driveSim = new FlywheelSim(DCMotor.getAndymark9015(4), 0, 0);
+    private FlywheelSim driveSim = new FlywheelSim(DCMotor.getAndymark9015(4), (8.14 / 1.0), 0.025);
 
     private double angle;
     private double distance;
