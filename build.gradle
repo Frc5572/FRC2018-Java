@@ -84,6 +84,8 @@ dependencies {
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+   
+    annotationProcessor 'com.github.Frc5572:RobotTools:v1.1.1'
 }
 
 test {
