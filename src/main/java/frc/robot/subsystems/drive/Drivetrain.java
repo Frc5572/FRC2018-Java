@@ -50,10 +50,11 @@ public class Drivetrain extends SubsystemBase {
      * @return Command
      */
     public Command drive(DoubleSupplier left, DoubleSupplier right) {
-        double laxis = MathUtil.applyDeadband(-left.getAsDouble(), .01);
-        double raxis = MathUtil.applyDeadband(-right.getAsDouble(), .01);
-
-        return Commands.run(() -> this.setMotor(laxis, raxis), this);
+        return Commands.run(() -> {
+            double laxis = MathUtil.applyDeadband(-left.getAsDouble(), .01);
+            double raxis = MathUtil.applyDeadband(-right.getAsDouble(), .01);
+            setMotor(laxis, raxis);
+        }, this);
     }
 }
 
